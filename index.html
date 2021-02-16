@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=it>
+          <head>
+            <title>Robot di Andrea Riccitiello </title>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <style>
+                  html, body { margin: 0; padding: 0; }
+                  canvas { display: block; }
+              </style>
+          </head>
+              <body>
+                  <script>
+                      function setup() {
+                          createCanvas(1000,1000);
+                      }
+                      function draw() {
+                          colorMode(RGB);
+                          background(255,255,0);
+                          strokeWeight(2);
+                              line(mouseX,0,mouseX,1000); //disegno la bisettrice
+                          fill(255,0,0);
+                              rect(mouseX-100,mouseY-80,200,160); //disegno la testa
+                          fill(255,255,0);
+                              triangle(mouseX-60,mouseY-60,mouseX-84,mouseY-15,mouseX-34,mouseY-15); //disegno l'occhio sinistro
+                              triangle(mouseX+60,mouseY-60,mouseX+84,mouseY-15,mouseX+34,mouseY-15); //disegno l'occhio destro
+                              circle(mouseX-59,mouseY-34,10); //disegno l'interno dell'occhio sinistro
+                              circle(mouseX+60,mouseY-34,10); //disegno l'interno dell'occhio destro
+                          strokeWeight(4);
+                              point(mouseX-59,mouseY-34); //disegno la pupilla dell'occhio sinistro
+                              point(mouseX+60,mouseY-34); //disegno la pupilla dell'occhio destro
+                          strokeWeight(2);
+                          fill(255,140,0);
+                              rect(mouseX-10,mouseY-10,20,35); //disegno il naso
+                          fill(0,175,255); //coloro l'ellisse di blu chiaro
+                              arc(mouseX,mouseY+37,67,67,TWO_PI,PI); //disegno la bocca
+                              line(mouseX-32,mouseY+37,mouseX+32,mouseY+37) //diseggno il labbro superiore
+                              line(mouseX+50,mouseY-80,mouseX+100,mouseY-140); //disegno l'antenna destra
+                              line(mouseX-50,mouseY-80,mouseX-100,mouseY-140); //disegno l'antenna sinistra
+                              circle(mouseX+100,mouseY-140,10); //disegno il pallino sopra l'antenna destra
+                              circle(mouseX-100,mouseY-140,10); //disegno il pallino sopra l'antenna sinistra
+                          fill(0,250,255);
+                              rect(mouseX-12.5,mouseY+80,25,50); //disegno il collo
+                          fill(0,0,255);
+                              square(mouseX-113,mouseY+130,225); //disegno il busto
+                          fill(110,250,100);
+                              rect(mouseX+112,mouseY+180,150,25); //disegno il busto destro
+                              rect(mouseX-263,mouseY+180,150,25); //disegno il busto sinistro
+                              rect(mouseX-65,mouseY+355,30,170); //disegno la gamba sinistra
+                              rect(mouseX+35,mouseY+355,30,170); //disegno la gamba destra
+                          fill(255,250,100);
+                              circle(mouseX+270,mouseY+190,50); //disegno la mano destra
+                              circle(mouseX-270,mouseY+190,50); //disegno la mano sinistra
+                              circle(mouseX+50,mouseY+540,50); //disegno il piede destro
+                              circle(mouseX-50,mouseY+540,50); //disegno il piede sinistra
+                      }
+                  </script>
+              </body>
+</html>
