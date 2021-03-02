@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Gli archi </title>
+    <style>
+      html, body { margin: 0; padding: 0; }
+      canvas { display: block; }
+    </style>
+  </head>
+    <body>
+      <script>
+        function setup() {
+          createCanvas(700, 500);
+          angleMode(DEGREES);
+        }
+
+        function draw() {
+          background(0,255,0);
+
+          text("Senso orario",300,50);
+
+          fill(255,255,255);
+          circle(100,100,50);
+
+          fill(255,0,0);
+          arc(100,100,50,50,0,30);
+          text("30°",95,150);
+
+          fill(255,255,255);
+          circle(200,100,50);
+
+          fill(255,0,0);
+          arc(200,100,50,50,0,45);
+          text("45°",195,150);
+
+          fill(255,255,255);
+          circle(300,100,50);
+
+          fill(255,0,0);
+          arc(300,100,50,50,0,90);
+          text("90°",295,150);
+
+          fill(255,255,255);
+          circle(400,100,50);
+
+          fill(255,0,0);
+          arc(400,100,50,50,0,180);
+          text("180°",395,150);
+
+          fill(255,255,255);
+          circle(500,100,50);
+
+          fill(255,0,0);
+          arc(500,100,50,50,0,270);
+          text("270°",495,150);
+
+          fill(255,255,255);
+          circle(600,100,50);
+
+          fill(255,0,0);
+          arc(600,100,50,50,0,360);
+          text("360°",595,150);
+
+          text("Senso antiorario",300,200);
+
+          fill(255,255,255);
+          circle(100,250,50);
+
+          fill(255,0,0);
+          arc(100,250,50,50,330,0);
+          text("30°",95,300);
+
+          fill(255,255,255);
+          circle(200,250,50);
+
+          fill(255,0,0);
+          arc(200,250,50,50,315,0);
+          text("45°",195,300);
+
+          fill(255,255,255);
+          circle(300,250,50);
+
+          fill(255,0,0);
+          arc(300,250,50,50,270,0);
+          text("90°",295,300);
+
+          fill(255,255,255);
+          circle(400,250,50);
+
+          fill(255,0,0);
+          arc(400,250,50,50,180,0);
+          text("180°",395,300);
+
+          fill(255,255,255);
+          circle(500,250,50);
+
+          fill(255,0,0);
+          arc(500,250,50,50,90,0);
+          text("270°",495,300);
+
+          fill(255,255,255);
+          circle(600,250,50);
+
+          fill(255,0,0);
+          arc(600,250,50,50,360,0);
+          text("360°",595,300);
+        }
+      </script>
+    </body>
+</html>
