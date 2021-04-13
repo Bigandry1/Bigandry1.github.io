@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Gioco palline </title>
+    <style>
+      html, body { margin: 0; padding: 0; }
+      canvas { display: block; }
+    </style>
+  </head>
+    <body>
+      <script>
+
+        let tasto;
+        let score = 0;
+        // coordinata x delle palline
+        let cX = [];
+        // coordinata y delle palline
+        let cY = [];
+        // indice dell'array
+        let i;
+        // coordinata x della racchetta
+        let rectX=0;
+        // coordinata y della racchetta
+        let rectY=550;
+
+        function setup(){
+
+          createCanvas(1000,600);
+
+          // istruzione generale: cX[i] = Math.random() * 1000;
+          // condizione iniziale: i = 0;
+          // condizione finale: i < 20;
+          // istruzione incremento i = i + 1;
+          for(i=0;i<20;i++){
+            cX[i] = Math.random() * 1000;
+          }
+
+          // istruzione generale: cY[i] = Math.random() * 300;
+          // condizione iniziale: i = 0;
+          // condizione finale: i < 20;
+          // istruzione incremento i = i + 1;
+          for(i=0;i<20;i++){
+            cY[i] = Math.random() * 300;
+          }
+        }
+
+        function draw() {
+
+          //if per far visualizzare il gioco appena aperto il sito
+          if (key == ""){
+            tasto = "g"
+          } else {
+            tasto = key;
+          }
+
+          background(255,255,255);
+
+          switch (tasto) {
+            case "p":
+              text("Pausa",500,200);
+              break;
+            case "g":
+
+              // spostamento per far si che il mouse sia centrato
+              // orizzontalmente rispetto al rettangolo
+              rectX=mouseX-50;
+
+              /*********************************************************/
+              /*For per la creazione delle palline                     */
+              /*********************************************************/
+
+              // istruzione generale: circle(cX[i],cY[i],50)
+              // condizione iniziale: i = 0
+              // condizione finale: i < 20
+              // istruzione incremento i = i + 1
+              for(i=0;i<20;i++){
+                fill(255,0,0);
+                circle(cX[i],cY[i],50);
+              }
+
+              /*********************************************************/
+              /*For per il movimento delle palline verso il basso      */
+              /*********************************************************/
+
+              // istruzione generale: cY[i] = cY[i] + 2
+              // condizione iniziale: i = 0
+              // condizione finale: i < 20
+              // istruzione incremento i = i + 1
+              for(i=0;i<20;i++){
+                cY[i] = cY[i] + 2.5;
+              }
+
+
+              /*********************************************************/
+              /*Gestione palline quando toccano la racchetta           */
+              /*********************************************************/
+
+              // istruzione generale: cY[i]= -cY[i];
+              //                      cX[i]= Math.random() * 1000;
+              //                      score++;
+              // condizione iniziale: i = 0
+              // condizione finale: i < 20
+              // istruzione incremento i = i + 1
+              for(i=0;i<20;i++) {
+              // se la coordinata Y delle palline è >=rectY-25 e <=rectY+25
+              // inizio un altro if
+                if(cY[i]>=rectY-25 && cY[i]<=rectY+25){
+              // se la coordinata X delle palline è <=rectY+125 e >=rectY-25
+                  if(cX[i]<=rectX+125 && cX[i]>=rectX-25){
+              // inverto la coordinata Y delle palline, cX[i]= Math.random() * 1000 e aumento lo score
+                    cY[i]= -cY[i];
+                    cX[i]= Math.random() * 1000;
+                    score++;
+                  }
+                }
+              }
+
+
+              // istruzione generale: cY[i]= -cY[i];
+              //                      cX[i]= Math.random() * 1000;
+              //                      score--;
+              // condizione iniziale: i = 0
+              // condizione finale: i < 20
+              // istruzione incremento i = i + 1
+              for(i=0;i<20;i++){
+              // se la coordinata Y delle palline è >625
+                if(cY[i]>625){
+              // inverto la coordinata delle palline, cX[i]= Math.random() * 1000 e diminuisco lo score
+                  cY[i]= -cY[i];
+                  cX[i]= Math.random() * 1000;
+                  score--;
+                }
+              }
+
+              /*********************************************************/
+              /*Gestione limite di destra e di sinistra della posizione*/
+              /*della racchetta                                        */
+              /*********************************************************/
+
+              // se la coordinata X (asse X) dell'angolo in alto a
+              // sinistra della racchetta rectX è minore o uguale a ZERO
+              // allora a rectX si assegna valore 0
+              if(rectX<=0){
+                rectX=0;
+              }
+
+              // se la coordinata X (asse X) dell'angolo in alto a
+              // sinistra della racchetta rectX è maggiore o uguale a 900
+              // allora a rectY si assegna valore 900
+              if(rectX>=900){
+                rectX=900;
+              }
+
+
+              /********************************************************/
+              /* Disegno area e figure                                */
+              /********************************************************/
+              fill(0,0,0);
+              rect(rectX,rectY,100,10);
+              textSize(20);
+              text("Score: " + score,900,30);
+              break;
+            default:
+              text("Premi g per giocare o p per mettere il gioco in pausa",400,200);
+              break;
+          }
+        }
+      </script>
+    </body>
+</html>
